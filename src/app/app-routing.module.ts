@@ -12,8 +12,7 @@ import {
 const routes: Routes = [
   {
     path: 'pages',
-    loadChildren: () => import('app/pages/pages.module')
-      .then(m => m.PagesModule),
+    loadChildren: './pages/pages.module#PagesModule',
   },
   {
     path: 'auth',

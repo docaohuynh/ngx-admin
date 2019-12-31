@@ -1,0 +1,3 @@
+webpack://app/./node_modules/intersection-observer/intersection-observer.js?:724
+}(window, document));
+remove function not use

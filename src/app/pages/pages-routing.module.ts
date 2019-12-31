@@ -18,56 +18,96 @@ const routes: Routes = [{
       path: 'iot-dashboard',
       component: DashboardComponent,
     },
+    // {
+    //   path: 'layout',
+    //   loadChildren: () => import('./layout/layout.module')
+    //     .then(m => m.LayoutModule),
+    // },
+    // {
+    //   path: 'forms',
+    //   loadChildren: () => import('./forms/forms.module')
+    //     .then(m => m.FormsModule),
+    // },
+    // {
+    //   path: 'ui-features',
+    //   loadChildren: () => import('./ui-features/ui-features.module')
+    //     .then(m => m.UiFeaturesModule),
+    // },
+    // {
+    //   path: 'modal-overlays',
+    //   loadChildren: () => import('./modal-overlays/modal-overlays.module')
+    //     .then(m => m.ModalOverlaysModule),
+    // },
+    // {
+    //   path: 'extra-components',
+    //   loadChildren: () => import('./extra-components/extra-components.module')
+    //     .then(m => m.ExtraComponentsModule),
+    // },
+    // {
+    //   path: 'maps',
+    //   loadChildren: () => import('./maps/maps.module')
+    //     .then(m => m.MapsModule),
+    // },
+    // {
+    //   path: 'charts',
+    //   loadChildren: () => import('./charts/charts.module')
+    //     .then(m => m.ChartsModule),
+    // },
+    // {
+    //   path: 'editors',
+    //   loadChildren: () => import('./editors/editors.module')
+    //     .then(m => m.EditorsModule),
+    // },
+    // {
+    //   path: 'tables',
+    //   loadChildren: () => import('./tables/tables.module')
+    //     .then(m => m.TablesModule),
+    // },
+    // {
+    //   path: 'miscellaneous',
+    //   loadChildren: () => import('./miscellaneous/miscellaneous.module')
+    //     .then(m => m.MiscellaneousModule),
+    // },
     {
       path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
+      loadChildren: './layout/layout.module#LayoutModule'
     },
     {
       path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
+      loadChildren: './forms/forms.module#FormsModule'
     },
     {
       path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
+      loadChildren: './ui-features/ui-features.module#UiFeaturesModule'
     },
     {
       path: 'modal-overlays',
-      loadChildren: () => import('./modal-overlays/modal-overlays.module')
-        .then(m => m.ModalOverlaysModule),
+      loadChildren: './modal-overlays/modal-overlays.module#ModalOverlaysModule'
     },
     {
       path: 'extra-components',
-      loadChildren: () => import('./extra-components/extra-components.module')
-        .then(m => m.ExtraComponentsModule),
+      loadChildren: './extra-components/extra-components.module#ExtraComponentsModule'
     },
     {
       path: 'maps',
-      loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
+      loadChildren: './maps/maps.module#MapsModule'
     },
     {
       path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
+      loadChildren: './charts/charts.module#ChartsModule'
     },
     {
       path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
+      loadChildren: './editors/editors.module#EditorsModule'
     },
     {
       path: 'tables',
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
+      loadChildren: './tables/tables.module#TablesModule'
     },
     {
       path: 'miscellaneous',
-      loadChildren: () => import('./miscellaneous/miscellaneous.module')
-        .then(m => m.MiscellaneousModule),
-    },
+      loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule'
+    }, 
     {
       path: '',
       redirectTo: 'dashboard',

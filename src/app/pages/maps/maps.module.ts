@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NbCardModule } from '@nebular/theme';
 
@@ -14,7 +13,6 @@ import { MapsRoutingModule, routedComponents } from './maps-routing.module';
       apiKey: 'AIzaSyCpVhQiwAllg1RAFaxMWSpQruuGARy0Y1k',
       libraries: ['places'],
     }),
-    LeafletModule.forRoot(),
     MapsRoutingModule,
     NgxEchartsModule,
     NbCardModule,

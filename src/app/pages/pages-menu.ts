@@ -153,10 +153,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/maps/gmaps',
       },
       {
-        title: 'Leaflet Maps',
-        link: '/pages/maps/leaflet',
-      },
-      {
         title: 'Bubble Maps',
         link: '/pages/maps/bubble',
       },
@@ -191,10 +187,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'TinyMCE',
         link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToasterConfig } from 'angular2-toaster';
 
-import 'style-loader!angular2-toaster/toaster.css';
+// import 'style-loader!angular2-toaster/toaster.css';
 import {
   NbComponentStatus,
   NbGlobalLogicalPosition,
