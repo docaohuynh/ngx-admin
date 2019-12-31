@@ -39,41 +39,61 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, APP_NAME));
 
-// // Serve static files 
-// app.get('*.*', express.static(join(DIST_FOLDER, APP_NAME)));
+const routes = require('./static.paths').default;
+console.log(routes);
+console.log('routes');
 
-// // All regular routes use the Universal engine
-// app.get('*', (req, res) => {
-//     res.render(join(DIST_FOLDER, APP_NAME, 'index.html'), { req });
-// });
-
-if (process.env.PRERENDER) {
-
-    const routes = require('./static.paths').default;
-    Promise.all(
-        routes.map(route =>
-            renderModuleFactory(AppServerModuleNgFactory, {
-                document: template,
-                url: route,
-                extraProviders: [
-                    provideModuleMap(LAZY_MODULE_MAP)
-                ]
-            }).then(html => [route, html])
-        )
-    ).then(results => {
-        results.forEach(([route, html]) => {
-            const fullPath = join('./public', route);
-            if (!existsSync(fullPath)) { mkdirSync(fullPath); }
-            writeFileSync(join(fullPath, 'index.html'), html);
-        });
-        process.exit();
+Promise.all(
+    routes.map(route =>
+        renderModuleFactory(AppServerModuleNgFactory, {
+            document: template,
+            url: route,
+            extraProviders: [
+                provideModuleMap(LAZY_MODULE_MAP)
+            ]
+        }).then(html => [route, html])
+    )
+).then(results => {
+    results.forEach(([route, html]) => {
+        const fullPath = join('./public', route);
+        if (!existsSync(fullPath)) { mkdirSync(fullPath); }
+        writeFileSync(join(fullPath, 'index.html'), html);
     });
+    process.exit();
+});
+// Serve static files 
+app.get('*.*', express.static(join(DIST_FOLDER, APP_NAME)));
+// All regular routes use the Universal engine
+app.get('*', (req, res) => {
+    res.render(join(DIST_FOLDER, APP_NAME, 'index.html'), { req });
+});
+// if (process.env.PRERENDER) {
 
-} else if (!process.env.FUNCTION_NAME) {
+//     const routes = require('./static.paths').default;
+//     Promise.all(
+//         routes.map(route =>
+//             renderModuleFactory(AppServerModuleNgFactory, {
+//                 document: template,
+//                 url: route,
+//                 extraProviders: [
+//                     provideModuleMap(LAZY_MODULE_MAP)
+//                 ]
+//             }).then(html => [route, html])
+//         )
+//     ).then(results => {
+//         results.forEach(([route, html]) => {
+//             const fullPath = join('./public', route);
+//             if (!existsSync(fullPath)) { mkdirSync(fullPath); }
+//             writeFileSync(join(fullPath, 'index.html'), html);
+//         });
+//         process.exit();
+//     });
 
-    // If we're not in the Cloud Functions environment, spin up a Node server
-    const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => {
-        console.log(`Node server listening on http://localhost:${PORT}`);
-    });
-}
+// } else if (!process.env.FUNCTION_NAME) {
+
+//     // If we're not in the Cloud Functions environment, spin up a Node server
+//     const PORT = process.env.PORT || 4000;
+//     app.listen(PORT, () => {
+//         console.log(`Node server listening on http://localhost:${PORT}`);
+//     });
+// }
