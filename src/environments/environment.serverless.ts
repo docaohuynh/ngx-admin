@@ -15,5 +15,5 @@ export const environment = {
     appId: '1:123494147327:web:1390951fda5393dd2e98ca',
     measurementId: 'G-G86MLL9HYE'
   },
-	baseHref: '/production/'
+  baseHref: '/production/'
 };
