@@ -14,7 +14,7 @@ const routes: Routes = [{
   children: [{
     path: 'gmaps',
     component: GmapsComponent,
-  },{
+  }, {
     path: 'bubble',
     component: BubbleMapComponent,
   }, {
