@@ -1,0 +1,16 @@
+{
+  "serverless": {
+    "--": [
+      "@ng-toolkit/universal"
+    ],
+    "project": "ngxadmin",
+    "provider": "aws",
+    "skipInstall": false,
+    "directory": ".",
+    "clientProject": "ngxadmin",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}
