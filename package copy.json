@@ -39,8 +39,8 @@
     "build:ssr": "ng run ngxadmin:server && npm run webpack:ssr",
     "webpack:ssr": "webpack --config webpack.server.config.js",
     "serve:ssr": "node dist/ngxadmin-webpack/server.js",
-    "build": "ng build --prod --buildOptimizer=true && npm run copy:hosting",
-    "copy:hosting": "cp -r ./dist/ngxadmin/* ./public",
+    "build": "ng build --prod --buildOptimizer=true && npm run copy:hosting && npm run build:ssr && npm run build:functions",
+    "copy:hosting": "cp -r ./dist/ngxadmin/* ./public && rm ./public/index.html",
     "build:functions": "npm run --prefix functions build"
   },
   "dependencies": {

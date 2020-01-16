@@ -10,6 +10,12 @@
 
 export const environment = {
   production: false,
+  collectionFirebase: {
+    lesson: 'lesson',
+    book: 'book',
+    user: 'user',
+    report: 'report',
+  },
   firebase: {
     apiKey: 'AIzaSyB56QbLKjsU1hsyKxRDaKUKruFQF9lFrEY',
     authDomain: 'superbrainsvn.firebaseapp.com',
@@ -19,6 +25,10 @@ export const environment = {
     messagingSenderId: '123494147327',
     appId: '1:123494147327:web:1390951fda5393dd2e98ca',
     measurementId: 'G-G86MLL9HYE'
+  },
+  config: {
+    auth_key: 'AUTH',
+    language_key: 'LANGUAGE'
   },
   baseHref: '/'
 };
