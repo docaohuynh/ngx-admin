@@ -1,7 +1,6 @@
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireFunctions } from '@angular/fire/functions';
 
 
 import { AngularFirestoreDocument, AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
@@ -11,7 +10,7 @@ import { LocalStorageService } from './index';
 import { environment } from '../../environments/environment';
 import { User } from '../model/index';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +21,7 @@ export class UserService {
   user: User;
   items: Observable < User[] > ;
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private fns: AngularFireFunctions, private localStorageService: LocalStorageService, private router: Router) {
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth, private localStorageService: LocalStorageService, private router: Router) {
     this.itemsCollection = afs.collection<User>(environment.collectionFirebase.user);
     this.afAuth.auth.onAuthStateChanged(user => {
       if (user) {
@@ -32,7 +31,6 @@ export class UserService {
                 this.localStorageService.setItem(environment.config.auth_key, userI);
                 this.user = userI;
               } catch (e) {
-                  console.log(e);
                   this.user = null;
                   this.localStorageService.setItem(environment.config.auth_key, null);
               }

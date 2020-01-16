@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NbLoginComponent } from '@nebular/auth';
 
 @Component({
   selector: 'ngx-ngxlogin',
@@ -8,9 +7,8 @@ import { NbLoginComponent } from '@nebular/auth';
 })
 export class NgxloginComponent implements OnInit {
 
-  // constructor() {
-  //   super();
-  // }
+  constructor() {
+  }
 
   ngOnInit() {
   }
